@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string) => {
     await getCsrfCookie();
     const res = await auth.login(email, password);
-    setUser(res.data.data.user);
+    setUser(res.data.user);
     router.push('/');
   };
 
