@@ -150,14 +150,14 @@ export default function DashboardPage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.recent_properties.length === 0 && (
+                    {(!data.recent_properties || data.recent_properties.length === 0) && (
                       <tr>
                         <td colSpan={4} className="px-6 py-8 text-center text-muted">
                           Aucun bien récent.
                         </td>
                       </tr>
                     )}
-                    {data.recent_properties.map((property) => (
+                    {data.recent_properties?.map((property) => (
                       <tr key={property.id} className="border-b border-border last:border-0 hover:bg-gray-50/50">
                         <td className="px-6 py-3 font-medium">{property.title}</td>
                         <td className="px-6 py-3">
@@ -184,12 +184,12 @@ export default function DashboardPage() {
                 <h2 className="text-base font-semibold">Messages récents</h2>
               </div>
               <div className="divide-y divide-border">
-                {data.recent_messages.length === 0 && (
+                {(!data.recent_messages || data.recent_messages.length === 0) && (
                   <div className="px-6 py-8 text-center text-sm text-muted">
                     Aucun message récent.
                   </div>
                 )}
-                {data.recent_messages.map((message) => (
+                {data.recent_messages?.map((message) => (
                   <div key={message.id} className="flex items-start gap-4 px-6 py-4 hover:bg-gray-50/50">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
                       {message.name.charAt(0).toUpperCase()}
