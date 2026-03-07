@@ -15,12 +15,13 @@ interface ContactFormData {
   address: string;
   city: string;
   whatsapp: string;
-  facebook: string;
-  instagram: string;
-  linkedin: string;
-  tiktok: string;
-  opening_hours: string;
-  map_url: string;
+  facebook_url: string;
+  instagram_url: string;
+  linkedin_url: string;
+  tiktok_url: string;
+  hours_weekday: string;
+  hours_weekend: string;
+  google_maps_embed: string;
 }
 
 const emptyForm: ContactFormData = {
@@ -31,12 +32,13 @@ const emptyForm: ContactFormData = {
   address: '',
   city: '',
   whatsapp: '',
-  facebook: '',
-  instagram: '',
-  linkedin: '',
-  tiktok: '',
-  opening_hours: '',
-  map_url: '',
+  facebook_url: '',
+  instagram_url: '',
+  linkedin_url: '',
+  tiktok_url: '',
+  hours_weekday: '',
+  hours_weekend: '',
+  google_maps_embed: '',
 };
 
 export default function ContactSettingsPage() {
@@ -62,12 +64,13 @@ export default function ContactSettingsPage() {
         address: data.address || '',
         city: data.city || '',
         whatsapp: data.whatsapp || '',
-        facebook: data.facebook || '',
-        instagram: data.instagram || '',
-        linkedin: data.linkedin || '',
-        tiktok: data.tiktok || '',
-        opening_hours: data.opening_hours || '',
-        map_url: data.map_url || '',
+        facebook_url: data.facebook_url || '',
+        instagram_url: data.instagram_url || '',
+        linkedin_url: data.linkedin_url || '',
+        tiktok_url: data.tiktok_url || '',
+        hours_weekday: data.hours_weekday || '',
+        hours_weekend: data.hours_weekend || '',
+        google_maps_embed: data.google_maps_embed || '',
       });
     }
   }, [data]);
@@ -242,8 +245,8 @@ export default function ContactSettingsPage() {
                 </label>
                 <input
                   type="url"
-                  value={formData.facebook}
-                  onChange={(e) => updateField('facebook', e.target.value)}
+                  value={formData.facebook_url}
+                  onChange={(e) => updateField('facebook_url', e.target.value)}
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="https://facebook.com/..."
                 />
@@ -254,8 +257,8 @@ export default function ContactSettingsPage() {
                 </label>
                 <input
                   type="url"
-                  value={formData.instagram}
-                  onChange={(e) => updateField('instagram', e.target.value)}
+                  value={formData.instagram_url}
+                  onChange={(e) => updateField('instagram_url', e.target.value)}
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="https://instagram.com/..."
                 />
@@ -266,8 +269,8 @@ export default function ContactSettingsPage() {
                 </label>
                 <input
                   type="url"
-                  value={formData.linkedin}
-                  onChange={(e) => updateField('linkedin', e.target.value)}
+                  value={formData.linkedin_url}
+                  onChange={(e) => updateField('linkedin_url', e.target.value)}
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="https://linkedin.com/..."
                 />
@@ -278,8 +281,8 @@ export default function ContactSettingsPage() {
                 </label>
                 <input
                   type="url"
-                  value={formData.tiktok}
-                  onChange={(e) => updateField('tiktok', e.target.value)}
+                  value={formData.tiktok_url}
+                  onChange={(e) => updateField('tiktok_url', e.target.value)}
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="https://tiktok.com/..."
                 />
@@ -294,31 +297,41 @@ export default function ContactSettingsPage() {
               <h2 className="text-lg font-semibold">Autres</h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="text-sm font-medium mb-1.5 block">
-                  Horaires d&apos;ouverture
+                  Horaires semaine
                 </label>
-                <textarea
-                  value={formData.opening_hours}
-                  onChange={(e) =>
-                    updateField('opening_hours', e.target.value)
-                  }
-                  rows={4}
-                  className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none"
-                  placeholder="Lundi - Vendredi: 8h - 18h&#10;Samedi: 9h - 13h"
+                <input
+                  type="text"
+                  value={formData.hours_weekday}
+                  onChange={(e) => updateField('hours_weekday', e.target.value)}
+                  className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  placeholder="Lun - Ven : 8h - 18h"
                 />
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block">
-                  URL Google Maps
+                  Horaires week-end
+                </label>
+                <input
+                  type="text"
+                  value={formData.hours_weekend}
+                  onChange={(e) => updateField('hours_weekend', e.target.value)}
+                  className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  placeholder="Sam : 9h - 13h"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="text-sm font-medium mb-1.5 block">
+                  URL Google Maps (embed)
                 </label>
                 <input
                   type="url"
-                  value={formData.map_url}
-                  onChange={(e) => updateField('map_url', e.target.value)}
+                  value={formData.google_maps_embed}
+                  onChange={(e) => updateField('google_maps_embed', e.target.value)}
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder="https://maps.google.com/..."
+                  placeholder="https://www.google.com/maps/embed?pb=..."
                 />
               </div>
             </div>

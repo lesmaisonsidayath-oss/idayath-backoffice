@@ -117,13 +117,15 @@ export interface ContactSettings {
   email_secondary: string | null;
   address: string;
   city: string;
+  country: string;
   whatsapp: string | null;
-  facebook: string | null;
-  instagram: string | null;
-  linkedin: string | null;
-  tiktok: string | null;
-  opening_hours: string | null;
-  map_url: string | null;
+  facebook_url: string | null;
+  instagram_url: string | null;
+  linkedin_url: string | null;
+  tiktok_url: string | null;
+  hours_weekday: string | null;
+  hours_weekend: string | null;
+  google_maps_embed: string | null;
 }
 
 export interface ContactMessage {
