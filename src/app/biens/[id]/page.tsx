@@ -138,7 +138,7 @@ export default function EditBienPage() {
       formData.append('category', category);
       formData.append('status', status);
       formData.append('price', price);
-      formData.append('surface', surface);
+      formData.append('surface', surface || '0');
       if (rooms) formData.append('rooms', rooms);
       if (bedrooms) formData.append('bedrooms', bedrooms);
       if (bathrooms) formData.append('bathrooms', bathrooms);
@@ -247,6 +247,7 @@ export default function EditBienPage() {
                     className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="location">Location</option>
+                    <option value="location_meublee">Location meublée</option>
                     <option value="vente">Vente</option>
                   </select>
                 </div>
@@ -315,14 +316,13 @@ export default function EditBienPage() {
 
               <div>
                 <label htmlFor="surface" className="mb-1.5 block text-sm font-medium">
-                  Surface (m²) *
+                  Surface (m²)
                 </label>
                 <input
                   id="surface"
                   type="number"
                   value={surface}
                   onChange={(e) => setSurface(e.target.value)}
-                  required
                   min="0"
                   className="w-full rounded-lg border border-border px-4 py-2.5 text-sm outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                   placeholder="0"

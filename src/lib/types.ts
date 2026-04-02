@@ -1,6 +1,6 @@
 // ── Enums ──
 export type UserRole = 'super_admin' | 'admin' | 'editeur';
-export type PropertyType = 'location' | 'vente';
+export type PropertyType = 'location' | 'location_meublee' | 'vente';
 export type PropertyCategory = 'appartement' | 'terrain' | 'studio' | 'F2' | 'F3' | 'F4' | 'villa';
 export type PropertyStatus = 'disponible' | 'loué' | 'vendu' | 'en_cours';
 
