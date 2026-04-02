@@ -6,7 +6,7 @@ import { DashboardLayout } from '@/components/layout/dashboard-layout';
 import { properties } from '@/lib/api';
 import { formatPrice, formatDate, propertyTypeLabels, propertyCategoryLabels, propertyStatusLabels } from '@/lib/utils';
 import type { Property, PaginatedResponse } from '@/lib/types';
-import { Plus, Eye, EyeOff, Star, StarOff, Pencil, Trash2 } from 'lucide-react';
+import { Plus, Eye, EyeOff, Star, StarOff, Pencil, Trash2, ImageIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const statusColors: Record<string, string> = {
@@ -18,6 +18,7 @@ const statusColors: Record<string, string> = {
 
 const typeColors: Record<string, string> = {
   location: 'bg-info/10 text-info',
+  location_meublee: 'bg-teal-500/10 text-teal-600',
   vente: 'bg-primary/10 text-primary',
 };
 
@@ -117,6 +118,7 @@ export default function BiensPage() {
           >
             <option value="">Tous les types</option>
             <option value="location">Location</option>
+            <option value="location_meublee">Location meublée</option>
             <option value="vente">Vente</option>
           </select>
 
@@ -164,6 +166,7 @@ export default function BiensPage() {
               <thead>
                 <tr className="border-b border-border bg-gray-50/50">
                   <th className="px-4 py-3 text-left font-medium text-muted">Image</th>
+                  <th className="px-4 py-3 text-center font-medium text-muted">Photos</th>
                   <th className="px-4 py-3 text-left font-medium text-muted">Titre</th>
                   <th className="px-4 py-3 text-left font-medium text-muted">Type</th>
                   <th className="px-4 py-3 text-left font-medium text-muted">Catégorie</th>
@@ -178,7 +181,7 @@ export default function BiensPage() {
               <tbody>
                 {data.data.length === 0 && (
                   <tr>
-                    <td colSpan={10} className="px-4 py-12 text-center text-muted">
+                    <td colSpan={11} className="px-4 py-12 text-center text-muted">
                       Aucun bien trouvé.
                     </td>
                   </tr>
@@ -198,6 +201,14 @@ export default function BiensPage() {
                           No img
                         </div>
                       )}
+                    </td>
+
+                    {/* Photos count */}
+                    <td className="px-4 py-3 text-center">
+                      <span className="inline-flex items-center gap-1 text-xs text-muted">
+                        <ImageIcon className="h-3.5 w-3.5" />
+                        {property.images_count ?? 0}
+                      </span>
                     </td>
 
                     {/* Title */}

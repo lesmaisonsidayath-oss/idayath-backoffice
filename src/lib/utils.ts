@@ -29,6 +29,7 @@ export function formatDateTime(date: string): string {
 
 export const propertyTypeLabels: Record<string, string> = {
   location: 'Location',
+  location_meublee: 'Location meublée',
   vente: 'Vente',
 };
 

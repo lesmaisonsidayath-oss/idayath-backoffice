@@ -46,6 +46,7 @@ export interface Property {
   images: PropertyImage[];
   main_image: PropertyImage | null;
   main_image_url: string | null;
+  images_count?: number;
   creator: User | null;
   created_at: string;
   updated_at: string;
