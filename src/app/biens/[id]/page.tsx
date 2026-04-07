@@ -43,7 +43,7 @@ export default function EditBienPage() {
     queryKey: ['property', id],
     queryFn: async () => {
       const res = await properties.get(id);
-      return res.data;
+      return res.data.data as Property;
     },
     enabled: !!id,
   });
