@@ -270,6 +270,7 @@ export default function EditBienPage() {
                     <option value="F3">F3</option>
                     <option value="F4">F4</option>
                     <option value="villa">Villa</option>
+                    <option value="bureau">Bureau</option>
                   </select>
                 </div>
 
@@ -288,6 +289,7 @@ export default function EditBienPage() {
                     <option value="loué">Loué</option>
                     <option value="vendu">Vendu</option>
                     <option value="en_cours">En cours</option>
+                      <option value="vefa">VEFA</option>
                   </select>
                 </div>
               </div>
