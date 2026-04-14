@@ -41,6 +41,7 @@ export const propertyCategoryLabels: Record<string, string> = {
   F3: 'F3',
   F4: 'F4',
   villa: 'Villa',
+  bureau: 'Bureau',
 };
 
 export const propertyStatusLabels: Record<string, string> = {
@@ -48,6 +49,7 @@ export const propertyStatusLabels: Record<string, string> = {
   loué: 'Loué',
   vendu: 'Vendu',
   en_cours: 'En cours',
+  vefa: '',
 };
 
 export const roleLabels: Record<string, string> = {
