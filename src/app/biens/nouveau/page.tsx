@@ -202,6 +202,11 @@ export default function NouveauBienPage() {
                   <option value="F2">F2</option>
                   <option value="F3">F3</option>
                   <option value="F4">F4</option>
+                  <option value="F5">F5</option>
+                  <option value="F6">F6</option>
+                  <option value="F7">F7</option>
+                  <option value="F8">F8</option>
+                  <option value="F9">F9</option>
                   <option value="villa">Villa</option>
                   <option value="bureau">Bureau</option>
                 </select>
